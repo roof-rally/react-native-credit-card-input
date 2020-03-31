@@ -43,14 +43,14 @@ const sVertical = StyleSheet.create({
     marginTop: 20,
     flexDirection: "row"
   },
-  inputContainer: {},
+  inputContainer: { marginBottom: 20 },
   inputLabel: {
     fontWeight: "bold"
   },
   input: {
     width: "100%",
     height: 40,
-    marginTop: 20
+    marginBottom: -5
   }
 });
 
