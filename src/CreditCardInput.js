@@ -43,7 +43,7 @@ const sVertical = StyleSheet.create({
     marginTop: 20,
     flexDirection: "row"
   },
-  inputContainer: { marginBottom: 20 },
+  inputContainer: { marginBottom: 20, marginRight: 20 },
   inputLabel: {
     fontWeight: "bold"
   },
@@ -239,26 +239,28 @@ const POSTAL_CODE_INPUT_WIDTH = 120; // https://github.com/yannickcr/eslint-plug
               { width: CARD_NUMBER_INPUT_WIDTH }
             ]}
           />
-          <CCInput
-            {...this._inputProps("expiry")}
-            keyboardType="numeric"
-            containerStyle={[
-              styles.inputContainer,
-              inputContainerStyle,
-              { width: EXPIRY_INPUT_WIDTH }
-            ]}
-          />
-          {requiresCVC && (
+          <View style={{ flexDirection: "row" }}>
             <CCInput
-              {...this._inputProps("cvc")}
+              {...this._inputProps("expiry")}
               keyboardType="numeric"
               containerStyle={[
                 styles.inputContainer,
                 inputContainerStyle,
-                { width: CVC_INPUT_WIDTH }
+                { width: EXPIRY_INPUT_WIDTH }
               ]}
             />
-          )}
+            {requiresCVC && (
+              <CCInput
+                {...this._inputProps("cvc")}
+                keyboardType="numeric"
+                containerStyle={[
+                  styles.inputContainer,
+                  inputContainerStyle,
+                  { width: CVC_INPUT_WIDTH }
+                ]}
+              />
+            )}
+          </View>
           {requiresName && (
             <CCInput
               {...this._inputProps("name")}
